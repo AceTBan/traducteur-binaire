@@ -59,3 +59,78 @@ def greek_to_text(greek):
     greek_to_char = {v: k for k, v in greek_alphabet_dict.items()}
     text = ''.join(greek_to_char.get(char, char) for char in greek)
     return text
+def main():
+    while True:
+        # Demande à l'utilisateur de choisir un type de conversion
+        conversion_choice = input("Voulez-vous utiliser le binaire (1), l'hexadécimal (2), le morse (3), ou l'alphabet grec (4) ? Entrez 1, 2, 3, ou 4 (ou 'q' pour quitter) : ")
+        
+        if conversion_choice == '1':
+            # Choix pour les conversions binaires
+            direction = input("Voulez-vous traduire du texte en binaire (1) ou du binaire en texte (2) ? Entrez 1 ou 2 : ")
+
+            if direction == '1':
+                text = input("Entrez le texte à traduire en binaire : ")
+                binary = text_to_binary(text)
+                print(f"Texte en binaire : {binary}")
+            elif direction == '2':
+                binary = input("Entrez le binaire à traduire en texte : ")
+                text = binary_to_text(binary)
+                print(f"Binaire en texte : {text}")
+            else:
+                print("Choix invalide. Veuillez entrer 1 ou 2.")
+        
+        elif conversion_choice == '2':
+            # Choix pour les conversions hexadécimales
+            direction = input("Voulez-vous traduire du texte en hexadécimal (1) ou de l'hexadécimal en texte (2) ? Entrez 1 ou 2 : ")
+
+            if direction == '1':
+                text = input("Entrez le texte à traduire en hexadécimal : ")
+                hexadecimal = text_to_hexadecimal(text)
+                print(f"Texte en hexadécimal : {hexadecimal}")
+            elif direction == '2':
+                hexadecimal = input("Entrez l'hexadécimal à traduire en texte : ")
+                text = hexadecimal_to_text(hexadecimal)
+                print(f"Hexadécimal en texte : {text}")
+            else:
+                print("Choix invalide. Veuillez entrer 1 ou 2.")
+        
+        elif conversion_choice == '3':
+            # Choix pour les conversions Morse
+            direction = input("Voulez-vous traduire du texte en morse (1) ou du morse en texte (2) ? Entrez 1 ou 2 : ")
+
+            if direction == '1':
+                text = input("Entrez le texte à traduire en morse : ")
+                morse = text_to_morse(text)
+                print(f"Texte en morse : {morse}")
+            elif direction == '2':
+                morse = input("Entrez le morse à traduire en texte : ")
+                text = morse_to_text(morse)
+                print(f"Morse en texte : {text}")
+            else:
+                print("Choix invalide. Veuillez entrer 1 ou 2.")
+        
+        elif conversion_choice == '4':
+            # Choix pour les conversions en alphabet grec
+            direction = input("Voulez-vous traduire du texte en alphabet grec (1) ou de l'alphabet grec en texte (2) ? Entrez 1 ou 2 : ")
+
+            if direction == '1':
+                text = input("Entrez le texte à traduire en alphabet grec : ")
+                greek = text_to_greek(text)
+                print(f"Texte en alphabet grec : {greek}")
+            elif direction == '2':
+                greek = input("Entrez l'alphabet grec à traduire en texte : ")
+                text = greek_to_text(greek)
+                print(f"Alphabet grec en texte : {text}")
+            else:
+                print("Choix invalide. Veuillez entrer 1 ou 2.")
+        
+        elif conversion_choice == 'q':
+            # Option pour quitter le programme
+            print("Au revoir !")
+            break
+        else:
+            # Message en cas de choix invalide
+            print("Choix invalide. Veuillez entrer 1, 2, 3, 4 ou 'q'.")
+
+if __name__ == "__main__":
+    main()
